@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'dart:ffi';
-import 'dart:io';
+// import 'dart:ffi';
+// import 'dart:io';
 
 import 'package:flutter_application_1/MenuModle.dart';
 import 'package:mongo_dart/mongo_dart.dart';
@@ -42,7 +42,12 @@ class MongoDatabase {
 
   // Add the following function to the _DisplayState class
   static delete(MenuModle data) async {
-    await userCollection.remove(where.id(ObjectId.parse(data.toString())));
+    try {
+      await userCollection.remove(where.id(ObjectId.parse(data.toString())));
+    } catch (e) {
+      log(e.toString());
+      return [];
+    }
     // return ();
   }
 

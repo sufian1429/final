@@ -48,32 +48,51 @@ class _DisplayState extends State<Display> {
   Widget displayCard(MenuModle data) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text("รายการ"),
+            SizedBox(
+              height: 10,
+            ),
             // Text("${data.foods}"),
             ListView.builder(
               shrinkWrap: true,
               itemCount: data.foods!.length,
               itemBuilder: (context, index) {
-                return Text("${data.foods![index]}");
+                return Text(" ${data.foods![index]}");
               },
             ),
             SizedBox(
-              height: 5,
+              height: 10,
+            ),
+            Text("จำนวนรายการในออเดอร์นี้"),
+            SizedBox(
+              height: 10,
             ),
             // Text("${data.quantities}"),
             ListView.builder(
               shrinkWrap: true,
-              itemCount: data.foods!.length,
+              itemCount: data.quantities!.length,
               itemBuilder: (context, index) {
-                return Text("${data.quantities![index]}");
+                return Text("${data.quantities![index]} ");
               },
             ),
             SizedBox(
-              height: 5,
+              height: 10,
             ),
-            Text("${data.totalPrice}"),
+            Text("ยอดเงินทั้งหมด"),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "${data.totalPrice}\฿",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+
             SizedBox(
               height: 5,
             ),
