@@ -16,16 +16,7 @@ class MongoDatabase {
     await db.open();
     userCollection = db.collection(USER_COLLECTION);
   }
-
-  // static Future<List<Map<String, dynamic>>> getData() async {
-  //   final arrData = await userCollection.find().toList();
-  //   List<Map<String, dynamic>> data = arrData.map((doc) {
-  //     final id = doc['_id'].toJson(); // Convert ObjectId to String
-  //     final Map<String, dynamic> data = {...doc, '_id': id};
-  //     return data;
-  //   }).toList();
-  //   return data;
-  // }
+  
 
   static Future<List<MenuModle>> getv2() async {
     try {
@@ -61,3 +52,5 @@ class MongoDatabase {
     }
   }
 }
+
+//
